@@ -6,13 +6,14 @@ App.Router.map ->
 	this.resource 'about'
 	this.resource 'posts', ->
 		this.resource 'post',
-			path: 'post_id'
+			path: ':post_id'
 App.PostsRoute = Ember.Route.extend
 	model: ->
 		App.Post.find()
 App.Post = DS.Model.extend
 	title: DS.attr('string')
 	author: DS.attr('string')
+	intro: DS.attr('string')
 	description: DS.attr('string')
 	publishedAt:DS.attr('date')
 App.Post.FIXTURES = [
@@ -23,7 +24,7 @@ App.Post.FIXTURES = [
 	description:"""
 	It should be the day before, I was still jerking off in my car, in the middle noon Thursday. There is a old lady who trying to park her car in the block next to me, when I was about to move my luggage in the front row. I thought she is too old to notice the unusual activity was going on, but unfortunitily she does. so they maybe report a suspected car was parking outside the community parking lot and propbly sleeping there for the night.
 	"""
-	publishedAt: new Date('4-14-1985')
+	publishedAt: new Date(1985,4,14)
 ,
 	id:2
 	title:"I'm not happy"
@@ -32,5 +33,10 @@ App.Post.FIXTURES = [
 	description:"""
 	It should be the day before, I was still jerking off in my car, in the middle noon Thursday. There is a old lady who trying to park her car in the block next to me, when I was about to move my luggage in the front row. I thought she is too old to notice the unusual activity was going on, but unfortunitily she does. so they maybe report a suspected car was parking outside the community parking lot and propbly sleeping there for the night.
 	"""
-	publishedAt: new Date('10-19-1984')
+	publishedAt: new Date(2013,3,9, 10, 21, 54)
 ]
+
+Em.Handlebars.registerBoundHelper 'date', (date) ->
+	moment(date).fromNow()
+Em.Handlebars.registerBoundHelper 'markdown', (input) ->
+	Em.Handlebars.SafeString(showdown.makeHtml(input))

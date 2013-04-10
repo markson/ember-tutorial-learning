@@ -58,7 +58,7 @@
 		</script>
 		<script type='text/x-handlebars', id='post'>
 			<h1>{{title}}</h1>
-			<h2>by {{author}} <small class='muted'>{{publishedAt}}</small></h2>
+			<h2>by {{author}} <small class='muted'>{{date publishedAt}}</small></h2>
 			<hr>
 			<div class='intro'>
 				{{intro}}
@@ -87,9 +87,6 @@
         <script src="components/ember/ember-data.js"></script>
         <!-- endbuild -->
 
-        <!-- build:js(.tmp) scripts/coffee.js -->
-        <script src="scripts/app.js"></script>
-        <!-- endbuild -->
 
         <!-- build:js scripts/plugins.js -->
         <script src="components/sass-bootstrap/js/bootstrap-affix.js"></script>
@@ -105,6 +102,12 @@
         <script src="components/sass-bootstrap/js/bootstrap-scrollspy.js"></script>
         <script src="components/sass-bootstrap/js/bootstrap-collapse.js"></script>
         <script src="components/sass-bootstrap/js/bootstrap-tab.js"></script>
+        <script src="components/moment/moment.js"></script>
+        <script src="components/showdown/compressed/showdown.js"></script>
+        <!-- endbuild -->
+
+        <!-- build:js(.tmp) scripts/coffee.js -->
+        <script src="scripts/app.js"></script>
         <!-- endbuild -->
 </body>
 </html>
