@@ -16,6 +16,7 @@
         <!-- endbuild -->
     </head>
     <body>
+		<p id='test'>Good</p>
 		<script type='text/x-handlebars'>
 			<div class='navbar'>
 				<div class='navbar-inner'>
@@ -26,6 +27,17 @@
 					</ul>
 				</div>
 			</div>
+			<div class='alert'>
+				<button type='button' class='close' data-dismiss='alert'>&times;</button>
+				<strong>Viva!</strong>This is{{appName}} and This is {{appName2}}
+			</div>
+
+			{{#unless test}}
+				<div class='alert'>
+					<button type='button' class='close' data-dismiss='alert'>&times;</button>
+					<strong>Viva!</strong>This is controlled by if 
+				</div>
+			{{/unless}}
 			{{outlet}}
 		</script>
 		<script type='text/x-handlebars' id='about'>
@@ -33,6 +45,19 @@
 				<p>Lin is getting better</p>
 			</div>
 		</script>
+		<script type='text/x-handlebars' id='haha'>
+			<div class='haha'>
+				<p>This is haha{{cry}}{{mom}}</p>
+			</div>
+			{{outlet}}
+		</script>
+		<script type='text/x-handlebars' id='foo'>
+			<div class='foo'>
+				<p>This is foo</p>
+			</div>
+			{{outlet}}
+		</script>
+		
 		<script type='text/x-handlebars' id='posts'>
 			<div class='container-fluid'>
 				<div class='row-fluid'>
@@ -57,14 +82,14 @@
 			</div>
 		</script>
 		<script type='text/x-handlebars', id='post'>
-			<h1>{{title}}</h1>
-			<h2>by {{author}} <small class='muted'>{{date publishedAt}}</small></h2>
+			<h1>{{title1}}</h1>
+			<h2>by {{author1}} <small class='muted'>{{date publishedAt1}}</small></h2>
 			<hr>
-			<div class='intro'>
+			<div class='intro1'>
 				{{intro}}
 			</div>
 			<div class='below-the-fold'>
-				{{description}}
+				{{description1}}
 			</div>
 		</script>
 
